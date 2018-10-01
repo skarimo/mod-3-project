@@ -1,0 +1,2 @@
+class PhotoInfoController < ApplicationController
+end

@@ -1,0 +1,2 @@
+class PhotoInfo < ApplicationRecord
+end
