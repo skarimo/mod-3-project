@@ -1,15 +1,72 @@
 
-<form id="photo-form" action="" method="post">
-
-   <video id="video" width="640" height="480" autoplay></video>
-   <button id="snap">Snap Photo</button>
-   <canvas id="canvas" width="640" height="480"></canvas>
-
- </form>
 
 
-<script src="./src/jquery-3.3.1.min.js"></script>
-<script src="./src/photo.js"></script>
-<script src="./src/adapter.js"></script>
-<script src="./src/base64.js"></script>
-<script src="./src/index.js"></script>
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title> DCF-Daily Face Tracker </title>
+  </head>
+  <body>
+    <div id="main-container">
+
+      <div id="login">
+        <form id ="user-login-form"class="login-form">
+          <label for="user-name">Name</label>
+          <input type="text" id="user-name" placeholder="Enter your name">
+          <label for="user-email">Email</label>
+          <input type="email" id="user-email" placeholder="Enter your email">
+          <input type="submit" name="login" value="Submit">
+        </form>
+      </div>
+      <div id="take-photo" style="display: none;">
+        <form id="photo-form" action="" method="post">
+
+           <video id="video" width="640" height="480" autoplay></video>
+           <button id="snap">Snap Photo</button>
+
+         </form>
+      </div>
+      <div id="display" style="display: none;">
+        <div id="user-info">
+          <div class="">
+              <canvas id="canvas" width="640" height="480"></canvas>
+          </div>
+          <div id="user-name">
+
+          </div>
+          <div id="user-photo-details">
+
+          </div>
+        </div>
+        <div id="chart-container">
+          <div id="chart-emotion">
+
+          </div>
+          <div id="chart-skinstatus">
+
+          </div>
+          <div id="chart-beauty">
+            <div id="chart-beauty-female">
+
+            </div>
+            <div id="chart-beauty-male">
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+      <div id="user-previous">
+
+      </div>
+    </div>
+    <script src="./src/jquery-3.3.1.min.js"></script>
+    <script src="./src/photo.js"></script>
+    <script src="./src/adapter.js"></script>
+    <script src="./src/base64.js"></script>
+    <script src="./src/index.js"></script>
+  </body>
+</html>

@@ -7,7 +7,7 @@ class Adapter {
     return fetch(path).then(res => res.json())
   }
 
-  getImageDataFromAPI(data) {
+  getImageDataFromAPI(imgBase64) {
     return $.ajax({
       type: 'POST',
       url: API_URL,
@@ -17,18 +17,18 @@ class Adapter {
         // enctype: 'multipart/form-data',
         // return_attributes: "gender",
         return_attributes: "age,gender,smiling,skinstatus,emotion,ethnicity,beauty",
-        image_base64: data
+        image_base64: imgBase64
       }
     })
   }
 
   saveImageData(user_id, photoObj) {
     let data = photoObj.faces[0].attributes
-    x.user_id = user_id
+    data.user_id = user_id
     return fetch(this.baseURL + "/photo_infos",{
         method: "POST",
         headers: {"Content-Type": "application/json"},
-        body: JSON.stringify(x)
+        body: JSON.stringify(data)
     }).then(res => res.json())
   }
 
