@@ -3,12 +3,12 @@ const API_KEY = "xeqjFioREjQnZE7GE6WkWMeotdUYswm8"
 const API_SECRET = "xP7bTCyA6UMD5c_eMTdVxgCcLIkBhcN1"
 const baseURL = "http://localhost:3000/api/v1"
 
-let form = document.querySelector("form")
+let form = document.querySelector("#photo-form")
 let canvas = document.getElementById('canvas');
 let context = canvas.getContext('2d');
 let video = document.getElementById('video');
 
-let adapter = new Adapter(baseURL)
+const adapter = new Adapter(baseURL)
 
   loadCamera()
 

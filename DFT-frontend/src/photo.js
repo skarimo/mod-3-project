@@ -10,6 +10,7 @@ function loadCamera() {
   }
 }
 
+
 function TakePhoto() {
   let file = context.drawImage(video, 0, 0, 640, 480);
     video.pause();
