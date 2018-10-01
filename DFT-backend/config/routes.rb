@@ -4,8 +4,12 @@ Rails.application.routes.draw do
 
   namespace :api do
       namespace :v1 do
+        post "/user-find-all-photos", to: 'users#find_all_photos'
+        post "/user-find-or-create", to: 'users#find_or_create'
         resources :photo_infos
 
       end
     end
+
+
   end

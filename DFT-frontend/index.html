@@ -1,16 +1,30 @@
 
-
+<!--
 <form id="files" action="index.html" method="post" enctype="multipart/form-data">
-          <input id="file" name="file" type="file">
-
-      <button type="submit" name="submit">TESTING</button>
-
 </form>
 
+          <input type="file" capture="camera" accept="image/*" id="cameraInput" name="cameraInput">
 
 
+      <button type="submit" name="submit">TESTING</button>
+ -->
+<form id="picture" action="index.html" method="post">
+
+   <video id="video" width="640" height="480" autoplay></video>
+   <button id="snap">Snap Photo</button>
+   <canvas id="canvas" width="640" height="480"></canvas>
+
+ </form>
 
 
 <script src="./src/jquery-3.3.1.min.js"></script>
+<script src="./src/photo.js"></script>
+
+<script src="./src/adapter.js"></script>
+<script src="./src/base64.js"></script>
 
 <script src="./src/index.js"></script>
+
+
+
+hide element
