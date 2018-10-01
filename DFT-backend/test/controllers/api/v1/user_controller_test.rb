@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class PhotoInfoControllerTest < ActionDispatch::IntegrationTest
+class Api::V1::UserControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end
