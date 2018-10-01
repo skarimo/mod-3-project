@@ -6,7 +6,6 @@ class Api::V1::PhotoInfosController < ApplicationController
   end
 
   def create
-    byebug
     @photo_info = PhotoInfo.create(photo_info_params)
     render json: @photo_info, status: :accepted
   end

@@ -6,7 +6,6 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def find_all_photos
-    byebug
     @user = User.find(user_id_params[:user_id])
     @photos = @user.photo_infos
     render json: @photos
