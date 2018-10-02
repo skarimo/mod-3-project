@@ -1,6 +1,6 @@
 function createChart(dataObj) {
   let chartEmot = new CanvasJS.Chart("chart-emotion", {
-  	theme: "light2", // "light1", "light2", "dark1", "dark2"
+  	theme: "dark1", // "light1", "light2", "dark1", "dark2"
   	exportEnabled: false,
   	animationEnabled: true,
   	title: {
@@ -29,7 +29,7 @@ chartEmot.render();
 
 var chartSkin = new CanvasJS.Chart("chart-skinstatus", {
 	animationEnabled: true,
-	theme: "light2", // "light1", "light2", "dark1", "dark2"
+	theme: "dark1", // "light1", "light2", "dark1", "dark2"
 	title:{
 		text: "Skin Status"
 	},
@@ -53,7 +53,7 @@ chartSkin.render();
 
 
   let chartBFemale = new CanvasJS.Chart("chart-beauty-female", {
-  	theme: "light1", // "light1", "light2", "dark1", "dark2"
+  	theme: "dark1", // "light1", "light2", "dark1", "dark2"
   	exportEnabled: false,
   	animationEnabled: true,
   	title: {
@@ -78,7 +78,7 @@ chartBFemale.render();
 
 
   let chartBMale = new CanvasJS.Chart("chart-beauty-male", {
-  	theme: "light1", // "light1", "light2", "dark1", "dark2"
+  	theme: "dark1", // "light1", "light2", "dark1", "dark2"
   	exportEnabled: false,
   	animationEnabled: true,
   	title: {

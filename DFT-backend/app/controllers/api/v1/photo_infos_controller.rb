@@ -1,5 +1,4 @@
 class Api::V1::PhotoInfosController < ApplicationController
-  before_action :find_photo_info, only: [:update]
   def index
     @photo_infos = PhotoInfo.all
     render json: @photo_infos
