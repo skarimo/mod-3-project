@@ -9,6 +9,8 @@ let context = canvas.getContext('2d');
 let video = document.getElementById('video');
 const loginForm = document.getElementById('user-login-form');
 const takePhotoForm = document.getElementById('take-photo');
+const chartContDiv = document.getElementById('chart-container');
+const chartEmotDiv = document.getElementById('chart-emotion');
 
 const adapter = new Adapter(baseURL)
 let user_id;
@@ -43,23 +45,32 @@ function renderTakePhoto() {
   })
 }
 
-function renderDisplay() {
+function renderDisplay(res) {
   takePhotoForm.style = "display: none;"
   const displayBlock = document.getElementById('display');
   displayBlock.style = "display: block;"
+  createChart(res)
+  // makeEmotionChart(res)
+  // makeBeautyFemaleChart(res)
+  // makeBeautyMaleChart(res)
+  // chartEmotDiv.append("")
+  // adapter.getUserPreviousImages(user_id)
+  // .then(previousPhotoInfos)
 }
 
 
 
-//   loadCamera()
-//
-// document.getElementById("snap").addEventListener("click", function(e) {
-//   e.preventDefault()
-//   TakePhoto().then((file) => {
-//     getBase64(file).then((x) => {
-//       adapter.getImageDataFromAPI(x).then(console.log)
-//     })
-//   })
-// console.log(form)
-//
-// });
+
+
+
+
+
+
+
+
+// function previousPhotoInfos (arrOfResults) {
+//   arrOfResults.forEach(createElement)
+// }
+// function createElement (el) {
+//   console.log(el.age);
+// }
