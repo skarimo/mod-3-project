@@ -3,6 +3,7 @@ function createChart(dataObj) {
   	theme: "dark1", // "light1", "light2", "dark1", "dark2"
   	exportEnabled: false,
   	animationEnabled: true,
+    backgroundColor: "rgba(0,0,0,.4)",
   	title: {
   		text: "Emotion Chart"
   	},
@@ -30,6 +31,7 @@ chartEmot.render();
 var chartSkin = new CanvasJS.Chart("chart-skinstatus", {
 	animationEnabled: true,
 	theme: "dark1", // "light1", "light2", "dark1", "dark2"
+  backgroundColor: "rgba(0,0,0,.4)",
 	title:{
 		text: "Skin Status"
 	},
@@ -40,7 +42,7 @@ var chartSkin = new CanvasJS.Chart("chart-skinstatus", {
 		type: "column",
 		showInLegend: true,
 		legendMarkerColor: "grey",
-		legendText: "MMbbl = one million barrels",
+		legendText: "",
 		dataPoints: [
 			{ y: dataObj.skinstatus.dark_circle, label: "Dark Circle" },
 			{ y: dataObj.skinstatus.stain,  label: "Stain" },
@@ -56,6 +58,7 @@ chartSkin.render();
   	theme: "dark1", // "light1", "light2", "dark1", "dark2"
   	exportEnabled: false,
   	animationEnabled: true,
+    backgroundColor: "rgba(0,0,0,.4)",
   	title: {
   		text: "Female Beauty Chart"
   	},
@@ -69,7 +72,7 @@ chartSkin.render();
   		indexLabel: "{label} - {y}%",
   		dataPoints: [
   			{ y: dataObj.beauty.female_score, label: "Beauty Score" },
-  			{ y: 100-dataObj.beauty.female_score, label: "Ugly" }
+  			{ y: 100-dataObj.beauty.female_score, label: "Witch Score" }
   			]
   	}]
   });
@@ -81,6 +84,7 @@ chartBFemale.render();
   	theme: "dark1", // "light1", "light2", "dark1", "dark2"
   	exportEnabled: false,
   	animationEnabled: true,
+    backgroundColor: "rgba(0,0,0,.4)",
   	title: {
   		text: "Male Beauty Chart"
   	},
@@ -94,7 +98,7 @@ chartBFemale.render();
   		indexLabel: "{label} - {y}%",
   		dataPoints: [
   			{ y: dataObj.beauty.male_score, label: "Manly Score" },
-  			{ y: 100-dataObj.beauty.male_score, label: "Gay Score" }
+  			{ y: 100-dataObj.beauty.male_score, label: "Silly  Score" }
   			]
   	}]
   });

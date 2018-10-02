@@ -21,6 +21,8 @@
           <input type="submit" name="login" value="Submit">
         </form>
       </div>
+
+
       <div id="take-photo" style="display: none;">
         <form id="photo-form" action="" method="post">
 
@@ -29,40 +31,39 @@
 
          </form>
       </div>
+
+
       <div id="display" style="display: none;">
+
         <div id="user-info">
-          <div class="">
-              <canvas id="canvas" width="640" height="480"></canvas>
+          <div id="photo-canvas" style="height: 480px; width:50%; margin:0 auto;">
+            <canvas id="canvas" width="640" height="480"></canvas>
           </div>
+
           <div id="user-name">
 
           </div>
+
           <div id="user-photo-details">
 
           </div>
+
         </div>
+
+
         <div id="chart-container">
-          <div id="chart-emotion" style="height: 300px; width: 100%;">
+          <div id="chart-pies">
+
+            <div id="chart-emotion" class="pieChart" style="height: 300px; width: 33%;"></div>
+            <div id="chart-beauty-female" class="pieChart" style="height: 300px; width: 33%;"></div>
+            <div id="chart-beauty-male" class="pieChart" style="height: 300px; width: 33%;"></div>
 
           </div>
-          <div id="chart-skinstatus" style="height: 300px; width: 100%;">
-
-          </div>
-          <div id="chart-beauty">
-            <div id="chart-beauty-female" style="height: 300px; width: 100%;">
-
-            </div>
-            <div id="chart-beauty-male" style="height: 300px; width: 100%;">
-
-            </div>
-          </div>
-
+          <div id="chart-skinstatus" style="height: 300px; width:50%; margin:0 auto;"></div>
         </div>
 
       </div>
-      <div id="user-previous">
-
-      </div>
+      <div id="user-previous"></div>
     </div>
     <script src="./src/jquery-3.3.1.min.js"></script>
     <script src="./src/photo.js"></script>
