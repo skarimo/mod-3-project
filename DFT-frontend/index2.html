@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+
+
+<div id="main-container">
+  <!-- login form -->
+    <div id="login" style="display: none;">
+      <form id ="user-login-form"class="login-form">
+        <label for="user-name">Name</label>
+        <input type="text" id="user-name" placeholder="Enter your name">
+        <label for="user-email">Email</label>
+        <input type="email" id="user-email" placeholder="Enter your email">
+        <input type="submit" name="login" value="Submit">
+      </form>
+    </div>
+
+    <div id="take-photo" style="display: none;">
+      <form id="photo-form" action="" method="post">
+         <video id="video" width="640" height="480" autoplay></video><br>
+         <button id="snap">Snap Photo</button>
+
+         <canvas id="canvas" width="640" height="480" style="display: none;"></canvas>
+       </form>
+    </div>
+
+  <!-- end of login and take photo -->
+
+  <!-- start of user display -->
+  <div id="display" style="display: block;, background-color: black;">
+
+
+    <!-- start user info -->
+    <div id="user-info" >
+      <div id="user-details-main-container">
+          <div id="user-photo">
+          </div>
+          <div id="user-details"></div>
+     </div>
+
+      <div id="notes"></div>
+  </div>
+  <!-- user info end -->
+
+
+    <!-- chart container start -->
+    <div id="user-body-container">
+
+      <div id="chart-container">
+        <div id="chart-emotion" class="pieChart" style="height: 300px; width: 33%;"></div>
+        <div id="chart-beauty-female" class="pieChart" style="height: 300px; width: 33%;"></div>
+        <div id="chart-beauty-male" class="pieChart" style="height: 300px; width: 33%;"></div>
+        <div id="chart-skinstatus" style="height: 300px; width:50%; margin:0 auto;"></div>
+      </div>
+      <!-- chart container end -->
+
+      <!-- previouse photos start -->
+      <div id="user-previous"></div>
+      <!-- previouse photos end -->
+
+    </div>
+    <!-- end of display -->
+  </div>
+</div>
+
+
+
+
+
+
+
+
+    <script src="./src/jquery-3.3.1.min.js"></script>
+    <script src="./src/photo.js"></script>
+    <script src="./src/adapter.js"></script>
+    <script src="./src/base64.js"></script>
+    <!-- <script src="./src/index.js"></script> -->
+    <script src="./src/charts.js"></script>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+  </body>
+
+</html>

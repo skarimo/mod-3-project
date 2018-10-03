@@ -66,8 +66,6 @@ function renderTakePhoto() {
 function renderDisplay(res) {
   takePhotoForm.style = "display: none;"
   let displayBlock = document.getElementById('display');
-  let navBar = document.querySelector(".topnav")
-  navBar.style = "display: block;"
   displayBlock.style = "display: block;"
   createChart(res)
   // makeEmotionChart(res)
