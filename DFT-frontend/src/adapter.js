@@ -50,4 +50,8 @@ class Adapter {
     }).then(res => res.json())
   }
 
+  getPhoto(id) {
+    return fetch(this.baseURL + `/photo_infos/${id}`).then(res => res.json())
+  }
+
 }

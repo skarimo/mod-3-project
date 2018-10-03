@@ -1,15 +1,22 @@
 
-
-
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <title> DCF-Daily Face Tracker </title>
     <link rel="stylesheet" href="styles.css">
+
+    <div class="topnav" style="display: none;">
+      <div class="topnav-right">
+        <a href="#"> <button id="navbar-button" type="button" name="button">Previous Data</button>  </a>
+
+      </div>
+    </div>
   </head>
   <body>
+
+
+
     <div id="main-container">
 
       <div id="login">
@@ -63,7 +70,7 @@
         </div>
 
       </div>
-      <div id="user-previous"></div>
+      <div id="user-previous" style="display: none;"></div>
     </div>
     <script src="./src/jquery-3.3.1.min.js"></script>
     <script src="./src/photo.js"></script>

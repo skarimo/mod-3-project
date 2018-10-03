@@ -38,8 +38,26 @@ function renderTakePhoto() {
   e.preventDefault()
     TakePhoto().then((photoBase64) => {
       adapter.getImageDataFromAPI(photoBase64).then((photoObj)=> {
+        console.log(photoObj)
         adapter.saveImageData(user_id, photoObj)
         .then(renderDisplay)
+
+      })
+      .then(() =>{
+        document.addEventListener("click",(e) => {
+          console.log(e.target)
+          if (e.target.id === "navbar-button") {
+            renderPrevious()
+            console.log(adapter.getPhoto(23))
+          } else if (e.target.class === "photo-details-list") {
+            let id = e.target.id
+            adapter.getPhoto(id).then((imgObj) => {
+              renderDisplay(imgObj)
+              let userPrevious = document.getElementById('user-previous')
+              userPrevious.style = "display: none;"
+            })
+          }
+        })
       })
     })
   })
@@ -47,7 +65,9 @@ function renderTakePhoto() {
 
 function renderDisplay(res) {
   takePhotoForm.style = "display: none;"
-  const displayBlock = document.getElementById('display');
+  let displayBlock = document.getElementById('display');
+  let navBar = document.querySelector(".topnav")
+  navBar.style = "display: block;"
   displayBlock.style = "display: block;"
   createChart(res)
   // makeEmotionChart(res)
@@ -56,6 +76,31 @@ function renderDisplay(res) {
   // chartEmotDiv.append("")
   // adapter.getUserPreviousImages(user_id)
   // .then(previousPhotoInfos)
+}
+
+function renderPrevious() {
+  let displayBlock = document.getElementById('display');
+  let userPrevious = document.getElementById('user-previous')
+  userPrevious.innerHTML = ""
+  userPrevious.style = "display: block;"
+  displayBlock.style = "display: none;"
+  let allPhotos = adapter.getUserPreviousImages(user_id)
+  let ol = document.createElement("ol")
+  allPhotos.then((photos)=>{
+    photos.forEach(function(photo) {
+      let date = new Date(photo.created_at)
+      let options = {
+        year: "numeric", month: "short",
+        day: "numeric", hour: "2-digit", minute: "2-digit"}
+      let li = document.createElement("li")
+      li.innerText = `${date.toLocaleString("en-us", options)}`
+      li.class = "photo-details-list"
+      li.id = `${photo.id}`
+      ol.append(li)
+    })
+  })
+
+  userPrevious.append(ol)
 }
 
 

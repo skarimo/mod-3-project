@@ -9,6 +9,11 @@ class Api::V1::PhotoInfosController < ApplicationController
     render json: @photo_info, status: :accepted
   end
 
+  def show
+    @photo = PhotoInfo.find(params[:id])
+    render json: @photo
+  end
+
   private
 
   def photo_info_params
