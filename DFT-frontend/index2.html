@@ -10,7 +10,7 @@
 
 <div id="main-container">
   <!-- login form -->
-    <div id="login" style="display: none;">
+    <div id="login" style="display: block;">
       <form id ="user-login-form"class="login-form">
         <label for="user-name">Name</label>
         <input type="text" id="user-name" placeholder="Enter your name">
@@ -32,18 +32,31 @@
   <!-- end of login and take photo -->
 
   <!-- start of user display -->
-  <div id="display" style="display: block;, background-color: black;">
+  <div id="display" style="display: none;">
 
 
     <!-- start user info -->
     <div id="user-info" >
       <div id="user-details-main-container">
           <div id="user-photo">
+            <canvas id="user-photo-canvas" width="200" height="200"></canvas>
           </div>
-          <div id="user-details"></div>
+          <div id="user-details">
+            <div id="user-detail">
+              <h1></h1>
+              <p></p>
+            </div>
+            <div id="user-photo-count">
+              <p></p>
+              <h2></h2>
+            </div>
+          </div>
      </div>
 
-      <div id="notes"></div>
+      <div id="notes">
+        <input type="text" name="note" placeholder="Add note to current photo analysis">
+        <input type="submit" name="noteSubmit" value=" ☆ ADD NOTE">
+      </div>
   </div>
   <!-- user info end -->
 
@@ -52,10 +65,13 @@
     <div id="user-body-container">
 
       <div id="chart-container">
-        <div id="chart-emotion" class="pieChart" style="height: 300px; width: 33%;"></div>
-        <div id="chart-beauty-female" class="pieChart" style="height: 300px; width: 33%;"></div>
-        <div id="chart-beauty-male" class="pieChart" style="height: 300px; width: 33%;"></div>
-        <div id="chart-skinstatus" style="height: 300px; width:50%; margin:0 auto;"></div>
+        <div id="chart-emotion" class="pieChart" style="height: 300px; width: 100%;"></div>
+        <div id="chart-beauty-female" class="pieChart" style="height: 300px; width: 100%;"></div>
+        <div id="chart-beauty-male" class="pieChart" style="height: 300px; width: 100%;"></div>
+        <div id="chart-skinstatus" style="height: 300px; width:100%; margin:0 auto;"></div>
+        <div id="note-div" style="height: 300px; width:100%; margin:0 auto;">
+          <p id="note-p"></p>
+        </div>
       </div>
       <!-- chart container end -->
 
@@ -79,7 +95,7 @@
     <script src="./src/photo.js"></script>
     <script src="./src/adapter.js"></script>
     <script src="./src/base64.js"></script>
-    <!-- <script src="./src/index.js"></script> -->
+    <script src="./src/index.js"></script>
     <script src="./src/charts.js"></script>
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
   </body>

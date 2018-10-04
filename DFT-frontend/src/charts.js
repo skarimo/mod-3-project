@@ -1,9 +1,10 @@
 function createChart(dataObj) {
+  chartContDiv.dataset.id = dataObj.id
   let chartEmot = new CanvasJS.Chart("chart-emotion", {
   	theme: "dark1", // "light1", "light2", "dark1", "dark2"
   	exportEnabled: false,
   	animationEnabled: true,
-    backgroundColor: "rgba(0,0,0,.4)",
+    backgroundColor: "rgba(0,0,0,0)",
   	title: {
   		text: "Emotion Chart"
   	},
@@ -31,7 +32,7 @@ chartEmot.render();
 var chartSkin = new CanvasJS.Chart("chart-skinstatus", {
 	animationEnabled: true,
 	theme: "dark1", // "light1", "light2", "dark1", "dark2"
-  backgroundColor: "rgba(0,0,0,.4)",
+  backgroundColor: "rgba(0,0,0,0)",
 	title:{
 		text: "Skin Status"
 	},
@@ -58,7 +59,7 @@ chartSkin.render();
   	theme: "dark1", // "light1", "light2", "dark1", "dark2"
   	exportEnabled: false,
   	animationEnabled: true,
-    backgroundColor: "rgba(0,0,0,.4)",
+    backgroundColor: "rgba(0,0,0,0)",
   	title: {
   		text: "Female Beauty Chart"
   	},
@@ -84,7 +85,7 @@ chartBFemale.render();
   	theme: "dark1", // "light1", "light2", "dark1", "dark2"
   	exportEnabled: false,
   	animationEnabled: true,
-    backgroundColor: "rgba(0,0,0,.4)",
+    backgroundColor: "rgba(0,0,0,0)",
   	title: {
   		text: "Male Beauty Chart"
   	},

@@ -7,6 +7,10 @@ let photoForm = document.querySelector("#photo-form")
 let canvas = document.getElementById('canvas');
 let context = canvas.getContext('2d');
 let video = document.getElementById('video');
+let userPhoto = document.getElementById('user-photo-canvas');
+let userPhotoContext = userPhoto.getContext('2d');
+let p = document.getElementById("note-p")
+
 const loginForm = document.getElementById('user-login-form');
 const takePhotoForm = document.getElementById('take-photo');
 const chartContDiv = document.getElementById('chart-container');
@@ -16,6 +20,11 @@ const adapter = new Adapter(baseURL)
 let user_id;
 let email;
 let name;
+let age;
+let ethnicity;
+let gender;
+let photoCount;
+let inputNote;
 
 loginForm.addEventListener('submit',(e) => {
   e.preventDefault()
@@ -38,23 +47,35 @@ function renderTakePhoto() {
   e.preventDefault()
     TakePhoto().then((photoBase64) => {
       adapter.getImageDataFromAPI(photoBase64).then((photoObj)=> {
-        console.log(photoObj)
+        console.log(photoObj.faces[0].attributes.note)
+         age = photoObj.faces[0].attributes.age.value
+         ethnicity = photoObj.faces[0].attributes.ethnicity.value
+         gender = photoObj.faces[0].attributes.gender.value
         adapter.saveImageData(user_id, photoObj)
-        .then(renderDisplay)
+        .then(renderDisplay).then(() =>{
+          renderPrevious()
+        })
 
       })
       .then(() =>{
+        // renderUserDetail()
         document.addEventListener("click",(e) => {
-          console.log(e.target)
-          if (e.target.id === "navbar-button") {
-            renderPrevious()
-            console.log(adapter.getPhoto(23))
-          } else if (e.target.class === "photo-details-list") {
+          if (e.target.class === "photo-details-list") {
             let id = e.target.id
             adapter.getPhoto(id).then((imgObj) => {
               renderDisplay(imgObj)
               let userPrevious = document.getElementById('user-previous')
-              userPrevious.style = "display: none;"
+
+            })
+          }else if (e.target.name==="noteSubmit") {
+            let inputEl = e.target.parentElement.querySelector("input[name='note'")
+            inputNote = inputEl.value
+            inputEl.value = ''
+            let id = chartContDiv.dataset.id
+            // let data1 = {note:inputNote}
+            adapter.addNote(id,inputNote)
+            .then((imgObj) => {
+              renderDisplay(imgObj)
             })
           }
         })
@@ -68,23 +89,19 @@ function renderDisplay(res) {
   let displayBlock = document.getElementById('display');
   displayBlock.style = "display: block;"
   createChart(res)
-  // makeEmotionChart(res)
-  // makeBeautyFemaleChart(res)
-  // makeBeautyMaleChart(res)
-  // chartEmotDiv.append("")
-  // adapter.getUserPreviousImages(user_id)
-  // .then(previousPhotoInfos)
+  if (inputNote != undefined && res.note != null){
+    p.innerText = `Note: ${res.note}`
+  } else if (res.note === null) {
+    p.innerText = ''
+  }
 }
 
 function renderPrevious() {
-  let displayBlock = document.getElementById('display');
   let userPrevious = document.getElementById('user-previous')
-  userPrevious.innerHTML = ""
-  userPrevious.style = "display: block;"
-  displayBlock.style = "display: none;"
   let allPhotos = adapter.getUserPreviousImages(user_id)
-  let ol = document.createElement("ol")
+  let ol = document.createElement("ul")
   allPhotos.then((photos)=>{
+    photoCount = photos.length
     photos.forEach(function(photo) {
       let date = new Date(photo.created_at)
       let options = {
@@ -94,16 +111,26 @@ function renderPrevious() {
       li.innerText = `${date.toLocaleString("en-us", options)}`
       li.class = "photo-details-list"
       li.id = `${photo.id}`
+      li.style = "background-color: rgb(66,80,97); border-bottom: 5px solid rgb(39,46,57); box-shadow: 0px 0px 97px 10px rgba(22,26,32,1); width: 95%;"
       ol.append(li)
+      // renderUserDetail()
     })
+    renderUserDetail()
   })
 
   userPrevious.append(ol)
 }
 
 
-
-
+function renderUserDetail() {
+  let userDetailsDiv = document.getElementById('user-detail');
+  userDetailsDiv.querySelector('h1').innerText = name
+  userDetailsDiv.querySelector('p').innerText = `Age: ${age}  Ethnicity: ${ethnicity}  Gender: ${gender}`
+  let userPhotoCount = document.getElementById('user-photo-count');
+  userPhotoCount.querySelector('h2').innerText = photoCount
+  userPhotoCount.querySelector('p').innerText = "Photo Count"
+  console.log(age,ethnicity,gender);
+}
 
 
 

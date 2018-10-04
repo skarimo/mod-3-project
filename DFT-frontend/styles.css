@@ -1,13 +1,15 @@
 body {
-  /* background-image: url("test.gif"); */
-  background-repeat: no-repeat;
+  background-image: url("test.gif");
+  background-repeat: repeat-y;
   background-position: center;
   background-position: top;
   background-size: 90%;
   height: 100%;
   width: 100%;
   margin: 0;
-  /* background-color: rgb(25,21,22); */
+  background-color: rgb(26,24,27);
+  font-family: "Lucida Console", Monaco, monospace;
+  color: rgb(203, 205, 207);
   /* width: 10%;
   height: 100%; */
 }
@@ -19,21 +21,24 @@ body {
   margin-top: 10%;
   margin-bottom: 10%;
   background-color: rgb(25,21,22);
+  box-shadow: 0px 0px 97px 48px rgba(26,31,38,1);
 }
 
 #user-info {
   display: flex;
   flex-direction: column;
   height: 400px;
-  /* width: 30%; */
+  /* width: 100%; */
   background-color: yellow;
+  border-bottom: 5px solid rgb(17,20,25);
 }
 
 #user-details-main-container{
   display: flex;
   height: 270px;
   flex-direction: row;
-  background-color: purple;
+  flex-grow: 1;
+  background-color: rgb(39,47,57);
 }
 
 #user-photo {
@@ -44,23 +49,40 @@ body {
   margin-left: 35px;
   /* padding: 10px; */
   background-color: pink;
+  box-shadow: 0px 0px 97px -5px rgba(22,26,32,1);
 }
 #user-details{
   position: relative;
+  display: flex;
+  flex-direction: row;
   flex-grow: 1;
   height: 200px;
-  width: 21px;
+  /* width: 21px; */
   margin-left: 35px;
   margin-bottom: 35px;
   margin-right: 35px;
   margin-top: 35px;
-  background-color: green;
+  background-color: rgb(39,47,57);
+
+}
+#user-photo-count{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  /* flex-grow: 1; */
+  /* width: 21px; */
+  padding-top: 10%;
+  padding-left: 30%;
+  background-color: rgb(39,47,57);
+
 }
 
 #notes {
   position: relative;
   height: 130px;
-  background-color: red;
+  background-color: rgb(39,47,57);
+  /* border: 5px solid black; */
+  box-shadow: 0px 0px 97px 10px rgba(22,26,32,1);
 }
 
 #user-body-container {
@@ -69,25 +91,25 @@ body {
 }
 
 #chart-container {
-  height: 600px;
+  /* height: 600px; */
   width: 60%;
-  border: 5px solid blue;
   /* margin-left: 35px;
   margin-bottom: 35px;
   margin-right: 35px; */
   /* margin-top: 35px; */
-  background-color: green;
+  background-color: rgb(39,47,57);
+  border-right: 5px solid rgb(17,20,25);
 }
 
 #user-previous {
-  height: 600px;
+  /* height: 600px; */
   width: 40%;
-  border: 5px solid blue;
+
   /* margin-left: 35px;
   margin-bottom: 35px;
   margin-right: 35px; */
   /* margin-top: 35px; */
-  background-color: green;
+  background-color: rgb(39,46,57);
 }
 
 #login {
@@ -120,7 +142,7 @@ input[type=submit] {
   font-size: 20px;
   letter-spacing: 3px;
   width: 100%;
-  background-color: #767474;
+  background-color: rgb(178,47,91);
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -130,9 +152,11 @@ input[type=submit] {
 }
 
 /* Add a background color to the submit button on mouse-over */
-input[type=submit]:hover {
-  background-color: #CC0000;
-}
+
+
+/* input[type=submit]:hover {
+  background-color: rgb(178,47,10);
+} */
 
 #video {
  /* border-style: solid; */

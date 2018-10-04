@@ -13,6 +13,7 @@ function loadCamera() {
 
 function TakePhoto() {
     context.drawImage(video, 0, 0, 640, 480);
+    userPhotoContext.drawImage(video, 0, 0, 200, 200);
     video.pause();
     video.src = "";
     localstream.getTracks()[0].stop();
