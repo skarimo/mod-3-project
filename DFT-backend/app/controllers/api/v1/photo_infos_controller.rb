@@ -13,6 +13,11 @@ class Api::V1::PhotoInfosController < ApplicationController
     @photo = PhotoInfo.find(params[:id])
     render json: @photo
   end
+  def update
+    @photo = PhotoInfo.find(params[:id])
+    @photo.update(note:params[:photo_info][:note])
+    render json: @photo
+  end
 
   private
 
