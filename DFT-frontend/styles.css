@@ -97,6 +97,7 @@ body {
 #chart-container {
   /* height: 600px; */
   width: 60%;
+  border-bottom-left-radius: 30px;
   /* margin-left: 35px;
   margin-bottom: 35px;
   margin-right: 35px; */
@@ -109,7 +110,7 @@ body {
   /* height: 600px; */
   width: 40%;
   word-wrap: break-word;
-
+border-bottom-right-radius: 30px;
   /* margin-left: 35px;
   margin-bottom: 35px;
   margin-right: 35px; */
