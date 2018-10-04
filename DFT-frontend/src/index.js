@@ -43,46 +43,82 @@ function renderTakePhoto() {
   takePhotoForm.style = "display: block;"
   const snap = document.getElementById('snap');
   loadCamera()
-  snap.addEventListener("click",(e) => {
-  e.preventDefault()
-    TakePhoto().then((photoBase64) => {
-      adapter.getImageDataFromAPI(photoBase64).then((photoObj)=> {
-        console.log(photoObj.faces[0].attributes.note)
-         age = photoObj.faces[0].attributes.age.value
-         ethnicity = photoObj.faces[0].attributes.ethnicity.value
-         gender = photoObj.faces[0].attributes.gender.value
-        adapter.saveImageData(user_id, photoObj)
-        .then(renderDisplay).then(() =>{
-          renderPrevious()
-        })
-
-      })
-      .then(() =>{
-        // renderUserDetail()
-        document.addEventListener("click",(e) => {
-          if (e.target.class === "photo-details-list") {
-            let id = e.target.id
-            adapter.getPhoto(id).then((imgObj) => {
-              renderDisplay(imgObj)
-              let userPrevious = document.getElementById('user-previous')
-
-            })
-          }else if (e.target.name==="noteSubmit") {
-            let inputEl = e.target.parentElement.querySelector("input[name='note'")
-            inputNote = inputEl.value
-            inputEl.value = ''
-            let id = chartContDiv.dataset.id
-            // let data1 = {note:inputNote}
-            adapter.addNote(id,inputNote)
-            .then((imgObj) => {
-              renderDisplay(imgObj)
-            })
-          }
-        })
-      })
-    })
-  })
+  // snap.addEventListener("click",(e) => {
+  // e.preventDefault()
+  //   TakePhoto().then((photoBase64) => {
+  //     adapter.getImageDataFromAPI(photoBase64).then((photoObj)=> {
+  //       console.log(photoObj.faces[0].attributes.note)
+  //        age = photoObj.faces[0].attributes.age.value
+  //        ethnicity = photoObj.faces[0].attributes.ethnicity.value
+  //        gender = photoObj.faces[0].attributes.gender.value
+  //       adapter.saveImageData(user_id, photoObj)
+  //       .then(renderDisplay).then(() =>{
+  //         renderPrevious()
+  //       })
+  //
+  //     })
+  //   })
+  // })
 }
+
+// snap.addEventListener("click",(e) => {
+// e.preventDefault()
+//   TakePhoto().then((photoBase64) => {
+//     adapter.getImageDataFromAPI(photoBase64).then((photoObj)=> {
+//       console.log(photoObj.faces[0].attributes.note)
+//        age = photoObj.faces[0].attributes.age.value
+//        ethnicity = photoObj.faces[0].attributes.ethnicity.value
+//        gender = photoObj.faces[0].attributes.gender.value
+//       adapter.saveImageData(user_id, photoObj)
+//       .then(renderDisplay).then(() =>{
+//         renderPrevious()
+//       })
+//
+//     })
+//   })
+// })
+
+
+document.addEventListener("click",(e) => {
+  if (e.target.class === "photo-details-list") {
+    let id = e.target.id
+    adapter.getPhoto(id).then((imgObj) => {
+      renderDisplay(imgObj)
+      let userPrevious = document.getElementById('user-previous')
+
+    })
+  }else if (e.target.name==="noteSubmit") {
+    let inputEl = e.target.parentElement.querySelector("input[name='note'")
+    inputNote = inputEl.value
+    inputEl.value = ''
+    let id = chartContDiv.dataset.id
+    // let data1 = {note:inputNote}
+    adapter.addNote(id,inputNote)
+    .then((imgObj) => {
+      renderDisplay(imgObj)
+    })
+  } else if (e.target.name==="retake-photo") {
+    let displayBlock = document.getElementById('display');
+    displayBlock.style = "display: none;"
+    renderTakePhoto()
+  } else if (e.target.id === "snap") {
+      e.preventDefault()
+      TakePhoto().then((photoBase64) => {
+        adapter.getImageDataFromAPI(photoBase64).then((photoObj)=> {
+          console.log(photoObj.faces[0].attributes.note)
+           age = photoObj.faces[0].attributes.age.value
+           ethnicity = photoObj.faces[0].attributes.ethnicity.value
+           gender = photoObj.faces[0].attributes.gender.value
+          adapter.saveImageData(user_id, photoObj)
+          .then(renderDisplay).then(() =>{
+            renderPrevious()
+          })
+        })
+      })
+  }
+})
+
+
 
 function renderDisplay(res) {
   takePhotoForm.style = "display: none;"
@@ -96,8 +132,10 @@ function renderDisplay(res) {
     }
 }
 
+
 function renderPrevious() {
-  let userPrevious = document.getElementById('user-previous')
+  let userPreviousUl = document.getElementById('user-previous-ul')
+      userPreviousUl.innerHTML = ''
   let allPhotos = adapter.getUserPreviousImages(user_id)
   let ul = document.createElement("ul")
   allPhotos.then((photos)=>{
@@ -121,7 +159,7 @@ function renderPrevious() {
     renderUserDetail()
   })
 
-  userPrevious.append(ul)
+  userPreviousUl.append(ul)
 }
 
 
