@@ -102,7 +102,10 @@ function renderPrevious() {
   let ol = document.createElement("ul")
   allPhotos.then((photos)=>{
     photoCount = photos.length
-    photos.forEach(function(photo) {
+    let photosSorted = photos.slice().sort(function(a,b) {
+      return a.id - b.id
+      })
+    photosSorted.forEach(function(photo) {
       let date = new Date(photo.created_at)
       let options = {
         year: "numeric", month: "short",
