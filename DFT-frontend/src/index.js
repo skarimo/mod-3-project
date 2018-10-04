@@ -89,11 +89,11 @@ function renderDisplay(res) {
   let displayBlock = document.getElementById('display');
   displayBlock.style = "display: block;"
   createChart(res)
-  if (inputNote != undefined && res.note != null){
-    p.innerText = `Note: ${res.note}`
-  } else if (res.note === null) {
-    p.innerText = ''
-  }
+  if (res.note != null){
+      p.innerText = `Note: ${res.note}`
+    }else{
+      p.innerText = ''
+    }
 }
 
 function renderPrevious() {
