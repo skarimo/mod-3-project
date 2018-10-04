@@ -75,8 +75,8 @@ body {
   flex-direction: column;
   /* flex-grow: 1; */
   /* width: 21px; */
-  padding-top: 10%;
-  padding-left: 30%;
+  padding-top: 0;
+  padding-left: 50%;
   background-color: rgb(39,47,57);
 
 }
@@ -108,6 +108,7 @@ body {
 #user-previous {
   /* height: 600px; */
   width: 40%;
+  word-wrap: break-word;
 
   /* margin-left: 35px;
   margin-bottom: 35px;
@@ -116,7 +117,14 @@ body {
   background-color: rgb(39,46,57);
 }
 
+#note-div {
+  padding: 4%;
+}
+
 #login {
+    display: inline-block;
+    width: 32%;
+    margin: auto;
     text-align: left;
     color: LightGray;
     text-transform: uppercase;
@@ -158,10 +166,14 @@ input[type=submit] {
 /* Add a background color to the submit button on mouse-over */
 
 
-/* input[type=submit]:hover {
-  background-color: rgb(178,47,10);
-} */
+input[type=submit]:hover {
+  box-shadow: inset 0px 0px 148px 23px rgba(169,41,81,1);
+}
 
+li:hover {
+  box-shadow: inset 0px 0px 148px 23px rgba(169,41,81,1);
+  color: rgba(169,41,81,1);
+}
 #video {
  /* border-style: solid; */
  /* border-color: red; */

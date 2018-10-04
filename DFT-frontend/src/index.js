@@ -99,7 +99,7 @@ function renderDisplay(res) {
 function renderPrevious() {
   let userPrevious = document.getElementById('user-previous')
   let allPhotos = adapter.getUserPreviousImages(user_id)
-  let ol = document.createElement("ul")
+  let ul = document.createElement("ul")
   allPhotos.then((photos)=>{
     photoCount = photos.length
     let photosSorted = photos.slice().sort(function(a,b) {
@@ -115,13 +115,13 @@ function renderPrevious() {
       li.class = "photo-details-list"
       li.id = `${photo.id}`
       li.style = "background-color: rgb(66,80,97); border-bottom: 5px solid rgb(39,46,57); box-shadow: 0px 0px 97px 10px rgba(22,26,32,1); width: 95%;"
-      ol.append(li)
+      ul.append(li)
       // renderUserDetail()
     })
     renderUserDetail()
   })
 
-  userPrevious.append(ol)
+  userPrevious.append(ul)
 }
 
 
