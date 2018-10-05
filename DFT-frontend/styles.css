@@ -190,6 +190,7 @@ button[name='retake-photo']{
 }
 button[name='retake-photo']:hover {
   color: rgba(169,41,81,1);
+  cursor: pointer;
   /* box-shadow: inset 0px 0px 148px 23px rgba(169,41,81,1); */
 }
 #video {

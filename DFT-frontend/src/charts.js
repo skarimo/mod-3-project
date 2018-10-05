@@ -73,7 +73,7 @@ chartSkin.render();
   		indexLabel: "{label} - {y}%",
   		dataPoints: [
   			{ y: dataObj.beauty.female_score, label: "Beauty Score" },
-  			{ y: 100-dataObj.beauty.female_score, label: "Witch Score" }
+  			{ y: 100-dataObj.beauty.female_score, label: "" }
   			]
   	}]
   });
@@ -98,8 +98,8 @@ chartBFemale.render();
   		indexLabelFontSize: 16,
   		indexLabel: "{label} - {y}%",
   		dataPoints: [
-  			{ y: dataObj.beauty.male_score, label: "Manly Score" },
-  			{ y: 100-dataObj.beauty.male_score, label: "Silly  Score" }
+  			{ y: dataObj.beauty.male_score, label: "Beauty Score" },
+  			{ y: 100-dataObj.beauty.male_score, label: "" }
   			]
   	}]
   });
